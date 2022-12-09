@@ -17,42 +17,74 @@ function playRound(playerSelection, computerSelection) {
 
   let result = "";
   if (playerSelection.toLowerCase() == "rock" && computerSelection == "Rock") {
-    result = "It's a draw"
+    result = "It's a draw!"
   }
   else if (playerSelection.toLowerCase() == "rock" && computerSelection == "Paper") {
-    result = "You lost!"
+    result = "You lost!";
+    cpuScore++;
   } 
   else if (playerSelection.toLowerCase() == "rock" && computerSelection == "Scissors") {
-    result = "You won!"
+    result = "You won!";
+    playerScore++;
   } 
   else if (playerSelection.toLowerCase() == "paper" && computerSelection == "Rock") {
-    result = "You won!"
+    result = "You won!";
+    playerScore++;
   }
   else if (playerSelection.toLowerCase() == "paper" && computerSelection == "Paper") {
-    result = "It's a draw"
+    result = "It's a draw!"
   } 
   else if (playerSelection.toLowerCase() == "paper" && computerSelection == "Scissors") {
-    result = "You lost!"
+    result = "You lost!";
+    cpuScore++;
   } 
   else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "Rock") {
-    result = "You lost!"
+    result = "You lost!";
+    cpuScore++;
   }
   else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "Paper") {
-    result = "You won!"
+    result = "You won!";
+    playerScore++;
   } 
   else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "Scissors") {
-    result = "It's a draw"
+    result = "It's a draw!"
   } 
   return result;
   }
 
-
-  const computerSelection = getComputerChoice();  
-  const playerSelection = prompt("Please type 'Rock', 'Paper' or 'Scissors' ");
-  const capitalized = playerSelection.charAt(0).toUpperCase()+ playerSelection.slice(1).toLowerCase();
-   
+  function game() {
+  let decision = "";  
+  if (playerScore > cpuScore) {
+    decision = "You are the winner!"
+  }  
+  else if (playerScore < cpuScore) {
+    decision = "You lost the game!"
+  }
+  else if (playerScore == cpuScore) {
+    decision = "The game result is a tie!"
+  }
+  return decision;
+}
+  
+  
+  let round = parseInt(0);
+  let playerScore = parseInt(0);
+  let cpuScore = parseInt(0);
+  for (let i = 0; i < 5; i++){
+  round++;
+  let computerSelection = getComputerChoice();  
+  let playerSelection = prompt("Please type 'Rock', 'Paper' or 'Scissors' ");
+  let capitalized = playerSelection.charAt(0).toUpperCase()+ playerSelection.slice(1).toLowerCase(); 
+  console.log("Round:" + " " + round)
   console.log("You choose:" + " " + capitalized);
   console.log("CPU chooses:" + " " + computerSelection);
   console.log(playRound(playerSelection, computerSelection));
+  if (round == 5){  
+  console.log("--------------------------------")  
+  console.log("Your score is:" + " " + playerScore)
+  console.log("CPU score is:" + " " + cpuScore)
+  console.log(game())
+  console.log("--------------------------------") 
+  }
   
-
+}
