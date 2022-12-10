@@ -52,7 +52,7 @@ function playRound(playerSelection, computerSelection) {
   return result;
   }
 
-  function game() {
+function bestOfFive() {
   let decision = "";  
   if (playerScore > cpuScore) {
     decision = "You are the winner!"
@@ -65,17 +65,35 @@ function playRound(playerSelection, computerSelection) {
   }
   return decision;
 }
-  
-  
-  let round = parseInt(0);
-  let playerScore = parseInt(0);
-  let cpuScore = parseInt(0);
+
+function verifier() {
+  do {   
+  playerSelection = prompt("Please type 'Rock', 'Paper' or 'Scissors' ");  
+  if (playerSelection.toLowerCase() == "rock" || playerSelection.toLowerCase() == "paper" ||  playerSelection.toLowerCase() == "scissors") {
+    checker = true
+  }
+  else {
+    checker = false
+  }
+  }  
+  while (!checker);
+    return playerSelection;   
+
+    }
+
+let round = parseInt(0);
+let playerScore = parseInt(0);
+let cpuScore = parseInt(0);
+let playerSelection ="";
+
+
+function game() {
   for (let i = 0; i < 5; i++){
   round++;
-  let computerSelection = getComputerChoice();  
-  let playerSelection = prompt("Please type 'Rock', 'Paper' or 'Scissors' ");
-  let capitalized = playerSelection.charAt(0).toUpperCase()+ playerSelection.slice(1).toLowerCase(); 
-  console.log("Round:" + " " + round)
+  verifier();
+  let computerSelection = getComputerChoice();
+  let capitalized = playerSelection.charAt(0).toUpperCase()+ playerSelection.slice(1).toLowerCase();
+  console.log("Round:" + " " + round);
   console.log("You choose:" + " " + capitalized);
   console.log("CPU chooses:" + " " + computerSelection);
   console.log(playRound(playerSelection, computerSelection));
@@ -83,8 +101,10 @@ function playRound(playerSelection, computerSelection) {
   console.log("--------------------------------")  
   console.log("Your score is:" + " " + playerScore)
   console.log("CPU score is:" + " " + cpuScore)
-  console.log(game())
+  console.log(bestOfFive())
   console.log("--------------------------------") 
   }
-  
+
+}  
 }
+game()
