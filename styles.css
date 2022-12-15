@@ -1,0 +1,51 @@
+.title {
+text-align: center;
+}
+
+.title h1,h3 {
+margin: 1px;   
+}
+
+.button-box {
+margin-top: 50px;    
+text-align: center;
+display: flex;
+justify-content: center;  
+
+}
+
+.score-box {
+margin-top: 25px;
+height: 100px;
+border: 1px dotted black; 
+
+}
+
+.game-box {
+width: 650px;
+height: 450px;
+border: 1px solid black;
+display: flex;
+margin: auto;
+margin-top: 20px;
+display: flex;
+}
+
+.button {
+padding: 0 20px;
+transition: transform 0.5s;
+
+}
+
+.button:hover {
+transform:rotate(15deg) scale(1.1);   
+border-radius: 5%;
+box-shadow: 0 0 10px #ffc400;
+}
+
+.info-box img {
+width: 650px;
+height: 450px;
+object-fit: contain;
+
+}

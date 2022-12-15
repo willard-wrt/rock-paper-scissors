@@ -4,10 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
-    <script src="script.js"></script>
+    
 </head>
 <body>
+<div class="title">
+    <h1>Rock-Paper-Scissors</h> 
+        <h3>じゃんけんぽん</h>
+</div>
+
+<div class="score-box"> </div>
+
+<div class="game-box">
+    <div class="info-box"><img id="aichan" src="img/standby.png"/></div>   
+   
     
+
+</div>
+
+<div class="button-box">
+    <div class="rock button" data-button="Rock"> <img src="img/rock.png" height="100px" onclick="playsnd()"/> </div>
+    <div class="paper button" data-button="Paper"> <img src="img/paper.png" height="100px" onclick="playsnd()"/> </div>
+    <div class="scissors button" data-button="Scissors"> <img src="img/scissors.png" height="100px" onclick="playsnd()"/> </div>
+    
+</div>
+<audio id="audio" src="sound/button-sound.mp3"></audio>
+
 </body>
 </html>

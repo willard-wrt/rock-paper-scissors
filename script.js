@@ -16,6 +16,8 @@ function getComputerChoice() {
 
 // Keep score and report the game result in each round
 function playRound(playerSelection, computerSelection) {
+  playerSelection = this.dataset.button;
+  computerSelection = getComputerChoice()
   let result = "";
   if (playerSelection.toLowerCase() == "rock" && computerSelection == "Rock") {
     result = "It's a draw!"
@@ -50,7 +52,32 @@ function playRound(playerSelection, computerSelection) {
   else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "Scissors") {
     result = "It's a draw!"
   } 
+  
+  aiImgDisplay(computerSelection);
+  console.log(playerSelection);
+  console.log('Aichan: ' + computerSelection);
+  console.log(result);
+  console.log(playerScore);
+  console.log(cpuScore);
+  
   return result;
+  
+
+}
+
+// Change computer's image (aichan)
+function aiImgDisplay(cpuSelection) {
+  var image = document.getElementById('aichan');
+  aichan = cpuSelection;
+  if (aichan == "Rock") {
+    image.src = "img/ai-rock.png";
+  }
+  else if (aichan == "Paper") {
+    image.src = "img/ai-paper.png";
+  }
+  else if (aichan == "Scissors") {
+    image.src = "img/ai-scissors.png";
+  }
 }
 
 // Give the end game result  
@@ -69,7 +96,7 @@ function bestOfFive() {
 }
 
 // Validate input by looping prompt box until the input value is matched
-function verifier() {
+/*function verifier() {
   do {   
     playerSelection = prompt("Please type 'Rock', 'Paper' or 'Scissors' ");  
     if (playerSelection.toLowerCase() == "rock" || playerSelection.toLowerCase() == "paper" ||  playerSelection.toLowerCase() == "scissors") {
@@ -81,17 +108,34 @@ function verifier() {
   }  
   while (!checker);
 }
+*/
 
 // Declare global variables
+
+const btnRock = document.querySelector('.rock');
+const btnPaper = document.querySelector('.paper');
+const btnScissors = document.querySelector('.scissors')
+btnRock.addEventListener('click', playRound);
+btnPaper.addEventListener('click', playRound);
+btnScissors.addEventListener('click', playRound);
 let round = parseInt(0);
 let playerScore = parseInt(0);
 let cpuScore = parseInt(0);
 
+function playsnd() {
+let audio = document.getElementById("audio");
+audio.currentTime = 0;
+audio.volume = 0.5;
+audio.play();
+}
+//let cpuSelection = getComputerChoice();
+
+
 // Display all the infomation and repeat the game for five times
-function game() {
+/*function game() {
   for (let i = 0; i < 5; i++){
   round++;
-  verifier();
+  //verifier();
   let cpuSelection = getComputerChoice();
   let capitalized = playerSelection.charAt(0).toUpperCase()+ playerSelection.slice(1).toLowerCase();
   console.log("Round:" + " " + round);
@@ -109,4 +153,4 @@ function game() {
 }
 
 // Play the game
-game()
+game()*/
