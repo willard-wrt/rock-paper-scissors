@@ -9,7 +9,7 @@ margin: 1px;
 .button-box {
 margin-top: 50px;    
 text-align: center;
-display: flex;
+display: none;
 justify-content: center;  
 
 }
@@ -41,6 +41,77 @@ transition: transform 0.5s;
 transform:rotate(15deg) scale(1.1);   
 border-radius: 5%;
 box-shadow: 0 0 10px #ffc400;
+}
+
+.start-box {
+display: flex;
+justify-content: center;
+
+}
+
+#start-btn {
+margin-top: 50px;
+font-size: 28px;
+border-radius: 10px;
+box-shadow: 0 0 4px grey;
+background-color: aliceblue;
+border: none;
+padding: 12px;
+letter-spacing: 1px;
+    
+
+}
+
+.score-box {
+display: flex;    
+justify-content: space-around;
+}
+
+.game-result {
+display: none;
+text-align: center;
+margin: auto;
+font-size: 40px;
+font-style: italic;
+}
+
+.ptext, .aitext{
+font-size: 35px;    
+}   
+
+.player-info, .ai-info{
+display: flex;
+flex-direction: column;
+}
+
+.pscore, .aiscore{
+font-size: 40px;  
+text-align: center;  
+}
+
+
+#start-btn:hover{
+    animation: animate 0.4s;
+    box-shadow: 0 0 15px pink;
+    animation-iteration-count: 2;
+}
+
+@keyframes animate{
+    0%{
+        transform: rotate(0deg) translateX(0px);
+    }
+    25%{
+        transform: rotate(-10deg) translateX(-10px);
+    }
+    50%{
+        transform: rotate(0deg) translateX(0px);
+    }
+    75%{
+        transform: rotate(10deg) translateX(10px);
+    }
+    100%{
+        transform: rotate(0deg) translateX(0px);
+    }
 }
 
 .info-box img {
