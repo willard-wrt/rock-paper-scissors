@@ -11,19 +11,17 @@ margin-top: 50px;
 text-align: center;
 display: none;
 justify-content: center;  
-
 }
 
 .score-box {
 margin-top: 25px;
 height: 100px;
 border: 1px dotted black; 
-
 }
 
-.game-box {
+.game-box {   
 width: 650px;
-height: 450px;
+height: 450px; 
 border: 1px solid black;
 display: flex;
 margin: auto;
@@ -34,19 +32,28 @@ display: flex;
 .button {
 padding: 0 20px;
 transition: transform 0.5s;
-
 }
 
 .button:hover {
 transform:rotate(15deg) scale(1.1);   
 border-radius: 5%;
+}
+
+.rock.button:hover {
+box-shadow: 0 0 10px #0084ff
+}
+
+.paper.button:hover {
 box-shadow: 0 0 10px #ffc400;
+}
+
+.scissors.button:hover {
+box-shadow: 0 0 10px #f78a9c;
 }
 
 .start-box {
 display: flex;
 justify-content: center;
-
 }
 
 #start-btn {
@@ -58,8 +65,6 @@ background-color: aliceblue;
 border: none;
 padding: 12px;
 letter-spacing: 1px;
-    
-
 }
 
 .score-box {
@@ -89,11 +94,16 @@ font-size: 40px;
 text-align: center;  
 }
 
+.info-box img {
+width: 650px;
+height: 450px;
+object-fit: contain;
+}
 
 #start-btn:hover{
-    animation: animate 0.4s;
-    box-shadow: 0 0 15px pink;
-    animation-iteration-count: 2;
+animation: animate 0.4s;
+box-shadow: 0 0 15px pink;
+animation-iteration-count: 2;
 }
 
 @keyframes animate{
@@ -112,11 +122,4 @@ text-align: center;
     100%{
         transform: rotate(0deg) translateX(0px);
     }
-}
-
-.info-box img {
-width: 650px;
-height: 450px;
-object-fit: contain;
-
 }

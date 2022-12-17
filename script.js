@@ -56,11 +56,12 @@ function playRound(playerSelection, computerSelection) {
   if (playerScore == 5 || cpuScore == 5){
   console.log(bestOfFive(playerScore,cpuScore));
   }
+
   document.querySelector('.pscore').innerHTML = playerScore;
   document.querySelector('.aiscore').innerHTML = cpuScore;
-
   aiImgDisplay(computerSelection);
   aiImgResult(playerScore,cpuScore);
+
   console.log(playerSelection);
   console.log('Aichan: ' + computerSelection);
   console.log(result);
@@ -68,11 +69,10 @@ function playRound(playerSelection, computerSelection) {
   console.log(cpuScore);
   
   return result;
-  
 
 }
 
-// Change computer's image (aichan)
+// Change AI image for each button click 
 function aiImgDisplay(cpuSelection) {
   let image = document.getElementById('aichan');
   aichan = cpuSelection;
@@ -86,6 +86,8 @@ function aiImgDisplay(cpuSelection) {
     image.src = "img/ai-scissors.png";
   }
 }
+
+// Change AI image for endings.
 
 function aiImgResult(pScore,cpuScore) {
   winOne = document.getElementById('win-one');
@@ -135,8 +137,6 @@ function gameStart() {
   startBox.style.display = 'none';
   image = document.getElementById('aichan');
   image.src = "img/ready.png";
-
-
 }
 
 // Give the end game result  
@@ -160,25 +160,10 @@ function bestOfFive(playerScore,cpuScore) {
   document.querySelector('.game-result').innerHTML = decision;
   buttonContainer = document.querySelector('.button-box');
   buttonContainer.style.display = 'none';
-
-
+  
   return decision;
 }
 
-// Validate input by looping prompt box until the input value is matched
-/*function verifier() {
-  do {   
-    playerSelection = prompt("Please type 'Rock', 'Paper' or 'Scissors' ");  
-    if (playerSelection.toLowerCase() == "rock" || playerSelection.toLowerCase() == "paper" ||  playerSelection.toLowerCase() == "scissors") {
-    checker = true
-    }
-    else {
-    checker = false
-    }
-  }  
-  while (!checker);
-}
-*/
 
 // Declare global variables
 
@@ -206,6 +191,24 @@ let hello = document.getElementById("hello");
 let cheerup = document.getElementById("cheer")
 btnStart.addEventListener("mouseenter", function(){hello.play()});
 btnStart.addEventListener("click", function(){cheerup.play(); hello.pause()});
+
+
+/* -------for reference only--------
+
+// Validate input by looping prompt box until the input value is matched
+function verifier() {
+  do {   
+    playerSelection = prompt("Please type 'Rock', 'Paper' or 'Scissors' ");  
+    if (playerSelection.toLowerCase() == "rock" || playerSelection.toLowerCase() == "paper" ||  playerSelection.toLowerCase() == "scissors") {
+    checker = true
+    }
+    else {
+    checker = false
+    }
+  }  
+  while (!checker);
+}
+*/
 
 /*function hellosnd() {
 let hello = document.getElementById("hello"); 
@@ -239,4 +242,6 @@ hello.play();
 }
 
 // Play the game
-game()*/
+game()
+
+*/

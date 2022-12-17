@@ -1,52 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
-    
-</head>
-<body>
-<div class="title">
-    <h1>Rock-Paper-Scissors</h> 
-        <h3>じゃんけんぽん</h>
-</div>
+    <title>Document</title>  
+  </head>
+  
+  <body>
+    <div class="title">
+      <h1>Rock-Paper-Scissors</h> 
+      <h3>じゃんけんぽん</h>
+    </div>
 
-<div class="score-box">
-    <div class="game-result"></div> 
-    <div class="player-info">
+    <div class="score-box">
+      <div class="game-result"></div> 
+      <div class="player-info">
         <div class="ptext">Player</div><div class="pscore">0</div></div>
-    <div class="ai-info">
+      <div class="ai-info">
         <div class="aitext">AI</div><div class="aiscore">0</div></div>
+    </div>
 
-</div>
+    <div class="game-box">
+      <div class="info-box"><img id="aichan" src="img/standby.png"/></div>   
+    </div>
 
-<div class="game-box">
-    <div class="info-box"><img id="aichan" src="img/standby.png"/></div>   
-   
+    <div class = "start-box"><button id ="start-btn">start game</button></div>
     
+    <div class ="button-box">
+      <div class="rock button" data-button="Rock"> <img src="img/rock.png" height="100px" onclick="playsnd()"/> </div>
+      <div class="paper button" data-button="Paper"> <img src="img/paper.png" height="100px" onclick="playsnd()"/> </div>
+      <div class="scissors button" data-button="Scissors"> <img src="img/scissors.png" height="100px" onclick="playsnd()"/> </div>
+    </div>
 
-</div>
-<div class = "start-box"><button id ="start-btn">start game</button></div>
-<div class ="button-box">
-    <div class="rock button" data-button="Rock"> <img src="img/rock.png" height="100px" onclick="playsnd()"/> </div>
-    <div class="paper button" data-button="Paper"> <img src="img/paper.png" height="100px" onclick="playsnd()"/> </div>
-    <div class="scissors button" data-button="Scissors"> <img src="img/scissors.png" height="100px" onclick="playsnd()"/> </div>
-    
-</div>
-<audio id="button-audio" src="sound/button-sound.mp3"></audio>
-<audio id="title" src="sound/title-scene.mp3"></audio>
-<audio id="hello" src="sound/hello.mp3"></audio>
-<audio id="cheer" src="sound/cheerup.mp3"></audio>
-<audio id="win-one" src="sound/win-one.mp3"></audio>
-<audio id="win-two" src="sound/win-two.mp3"></audio>
-<audio id="win-three" src="sound/win-three.mp3"></audio>
-<audio id="lose-one" src="sound/lose-one.mp3"></audio>
-<audio id="lose-two" src="sound/lose-two.mp3"></audio>
-<audio id="lose-three" src="sound/lose-three.mp3"></audio>
+    <audio id="button-audio" src="sound/button-sound.mp3"></audio>
+    <audio id="title" src="sound/title-scene.mp3"></audio>
+    <audio id="hello" src="sound/hello.mp3"></audio>
+    <audio id="cheer" src="sound/cheerup.mp3"></audio>
+    <audio id="win-one" src="sound/win-one.mp3"></audio>
+    <audio id="win-two" src="sound/win-two.mp3"></audio>
+    <audio id="win-three" src="sound/win-three.mp3"></audio>
+    <audio id="lose-one" src="sound/lose-one.mp3"></audio>
+    <audio id="lose-two" src="sound/lose-two.mp3"></audio>
+    <audio id="lose-three" src="sound/lose-three.mp3"></audio>
+  </body>
 
-</body>
 </html>
