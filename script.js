@@ -56,9 +56,8 @@ function playRound(playerSelection, computerSelection) {
   if (playerScore == 5 || cpuScore == 5){
   console.log(bestOfFive(playerScore,cpuScore));
   }
-
-  document.querySelector('.pscore').innerHTML = playerScore;
-  document.querySelector('.aiscore').innerHTML = cpuScore;
+ 
+  updateScore(playerScore,cpuScore)
   aiImgDisplay(computerSelection);
   aiImgResult(playerScore,cpuScore);
 
@@ -70,6 +69,11 @@ function playRound(playerSelection, computerSelection) {
   
   return result;
 
+}
+
+function updateScore(playerScore,cpuScore){
+  document.querySelector('.pscore').innerHTML = playerScore;
+  document.querySelector('.aiscore').innerHTML = cpuScore;
 }
 
 // Change AI image for each button click 
@@ -147,6 +151,9 @@ function bestOfFive(playerScore,cpuScore) {
   playerInfo.style.display = 'none';
   aiInfo.style.display ='none';
   result.style.display ='flex';
+  restartBox.style.display = 'flex';
+  choiceButtons.forEach(btn => btn.disabled = true);
+
   if (playerScore > cpuScore) {
     decision = "You are the winner!"
   }  
@@ -165,16 +172,41 @@ function bestOfFive(playerScore,cpuScore) {
 }
 
 
+function restartGame(){
+  playerInfo = document.querySelector('.player-info');
+  aiInfo = document.querySelector('.ai-info'); 
+  result = document.querySelector('.game-result');
+  // Reset scores
+  playerScore = 0;
+  cpuScore = 0;
+   // Update score displays
+  updateScore(playerScore,cpuScore)
+  playerInfo.style.display = 'flex';
+  aiInfo.style.display ='flex';
+  result.style.display ='none';
+  // Hide restart button
+  restartBox.style.display = 'none';
+  // Enable choice buttons again
+  choiceButtons.forEach(btn => btn.disabled = false);
+  buttonContainer = document.querySelector('.button-box');
+  buttonContainer.style.display = 'flex';
+};
+
+
 // Declare global variables
 
 const btnRock = document.querySelector('.rock');
 const btnPaper = document.querySelector('.paper');
 const btnScissors = document.querySelector('.scissors')
 const btnStart = document.querySelector('#start-btn')
+const restartBox= document.querySelector('.restart-box');
+const restartBtn= document.querySelector('#restart-btn');
+const choiceButtons = document.querySelectorAll('.choice-button');
 btnRock.addEventListener('click', playRound);
 btnPaper.addEventListener('click', playRound);
 btnScissors.addEventListener('click', playRound);
 btnStart.addEventListener('click', gameStart)
+restartBtn.addEventListener("click", restartGame);
 let round = parseInt(0);
 let playerScore = parseInt(0);
 let cpuScore = parseInt(0);
@@ -191,6 +223,7 @@ let hello = document.getElementById("hello");
 let cheerup = document.getElementById("cheer")
 btnStart.addEventListener("mouseenter", function(){hello.play()});
 btnStart.addEventListener("click", function(){cheerup.play(); hello.pause()});
+
 
 
 /* -------for reference only--------
