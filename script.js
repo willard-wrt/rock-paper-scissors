@@ -224,6 +224,37 @@ let cheerup = document.getElementById("cheer")
 btnStart.addEventListener("mouseenter", function(){hello.play()});
 btnStart.addEventListener("click", function(){cheerup.play(); hello.pause()});
 
+// Preload images
+function preloadImages() {
+    // Array of image paths
+    const images = [
+        "img/rock.png",
+        "img/paper.png",
+        "img/scissors.png",
+        "img/ai-rock.png",
+        "img/ai-paper.png",
+        "img/ai-scissors.png",
+        "img/ready.png",
+        "img/win-one.png",
+        "img/win-two.png",
+        "img/win-three.png",
+        "img/lose-one.png",
+        "img/lose-two.png",
+        "img/lose-three.png"
+    ];
+
+    // Create new Image objects and preload them
+    images.forEach(src => {
+        let img = new Image();
+        img.src = src;
+    });
+}
+
+// Call the preload function when the page loads
+window.onload = function() {
+    preloadImages();
+};
+
 
 
 /* -------for reference only--------
